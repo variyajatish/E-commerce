@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.product-card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 13px 55px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.product-image {
+    width: 300px;
+    height: 240px;
+    margin-right: 40px;
+}
+
+.product-image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+    background-attachment: fixed;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-title {
+    font-size: 2rem;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    margin: 0 0 8px;
+    color: #28a745;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.add-to-cart, .buy-now {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+}
+
+.add-to-cart {
+    background: #007bff;
+    color: #fff;
+}
+
+.add-to-cart a {
+    color: white;
+    text-decoration: none;
+}
+
+.add-to-cart:hover {
+    background: #0056b3;
+}
+
+.buy-now {
+    background: #28a745;
+    color: #fff;
+}
+
+.buy-now a {
+    text-decoration: none;
+    color: white;
+}
+
+.buy-now:hover {
+    background: #1e7e34;
+}
+
+.product-quantity {
+    width: 80px;
+    padding: 4px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0px 0px 15px;
+    background-color: rgb(233, 233, 233);
+}
+
+.product-quantity a {
+    text-decoration: none;
+}
+
+.chech-out{
+    background-color: #007bff;
+}
+
+.price-details {
+    background: #fff;
+    /* width: 300px; */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+.price-details h3 {
+    margin: 0 0 15px;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    font-size: 14px;
+    color: #333;
+}
+.discount, .savings {
+    color: green;
+}
+.delivery {
+    text-decoration: line-through;
+    color: #999;
+}
+.total {
+    font-weight: bold;
+    font-size: 16px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+.checkout-but{
+    /* background-color: #28a745; */
+    text-align: center;
+}

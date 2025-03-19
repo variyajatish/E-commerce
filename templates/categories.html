@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Ecommerce Shop</title>
+    <link rel="stylesheet" href="{% static 'css/c.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ecommerce Shop</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/main">Products</a></li>
+                <li><a href="/cart">Cart</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="/login">Profile </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2 style="text-align: center;">All Product</h2>
+    <!-- <h2>Our Products</h2> -->
+    <div class="product-grid">
+        {% for i in view %}
+        <div class="product-card">
+            <img src="media/{{i.image}}"
+                alt="Product 1">
+            <h3>{{i.product}}</h3>
+            <p>${{i.price}}</p>
+            <a href="/product?id={{i.id}}" class="btn">View Product</a>
+        </div>
+        {% endfor %}
+        <!-- <div class="product-card">
+            <img src="https://preview.vwthemesdemo.com/vw-ecommerce-store-pro/wp-content/uploads/sites/67/2023/10/best-seller5.webp"
+                alt="Product 2">
+            <h3>Baby Loafers</h3>
+            <p>$99.99</p>
+            <a href="/product" class="btn">Add to Cart</a>
+        </div>
+        <div class="product-card">
+            <img src="https://preview.vwthemesdemo.com/vw-ecommerce-store-pro/wp-content/uploads/sites/67/2023/10/best-seller1.webp"
+                alt="Product 3">
+            <h3>Headphones</h3>
+            <p>$99.99</p>
+            <a href="/product" class="btn">Add to Cart</a>
+        </div>
+        <div class="product-card">
+            <img src="https://preview.vwthemesdemo.com/vw-ecommerce-store-pro/wp-content/uploads/sites/67/2023/10/best-seller6.webp"
+                alt="Product 3">
+            <h3>Sunglasses</h3>
+            <p>$99.99</p>
+            <a href="/product" class="btn">Add to Cart</a>
+        </div>
+        <div class="product-card">
+            <img src="https://preview.vwthemesdemo.com/vw-ecommerce-store-pro/wp-content/uploads/sites/67/2023/10/best-seller7.webp"
+                alt="Product 3">
+            <h3>Hats</h3>
+            <p>$99.99</p>
+            <a href="/product" class="btn">Add to Cart</a>
+        </div>
+        <div class="product-card">
+            <img src="https://preview.vwthemesdemo.com/vw-ecommerce-store-pro/wp-content/uploads/sites/67/2023/10/featured-products3.webp"
+                alt="Product 3">
+            <h3>Running Shoes</h3>
+            <p>$99.99</p>
+            <a href="/product" class="btn">Add to Cart</a>
+        </div>
+        <div class="product-card">
+            <img src="https://preview.vwthemesdemo.com/vw-ecommerce-store-pro/wp-content/uploads/sites/67/2023/10/best-seller8.webp"
+                alt="Product 3">
+            <h3>T-Shirts</h3>
+            <p>$99.99</p>
+            <a href="/product" class="btn">Add to Cart</a>
+        </div>
+        <div class="product-card">
+            <img src="https://preview.vwthemesdemo.com/vw-ecommerce-store-pro/wp-content/uploads/sites/67/2023/10/best-seller3.webp"
+                alt="Product 3">
+            <h3>Women Satchel</h3>
+            <p>$99.99</p>
+            <a href="/product" class="btn">Add to Cart</a>
+        </div> -->
+    </div>
+
+</body>
+</html>

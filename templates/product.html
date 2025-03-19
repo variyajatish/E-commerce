@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Information</title>
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+    
+    <header>
+        <h1>Product Information</h1>
+    </header>
+
+    <div class="container">
+        <div class="product">
+            
+            <div class="product-details">
+                <h1>{{data.product}}</h1>
+                <div class="product-details-img">
+                    <img src="media/{{data.image}}" alt="Product Image">
+                </div>
+                <h2>Description</h2>
+                <p>{{data.desc}}</p>
+                <p class="price">${{data.price}}</p>
+                <div class="cta">
+                    <a href="/addcart?id={{data.id}}&type=incre"><button>Add to Cart</button></a>
+                    <!-- <a href="/categories?categori={{i.categori}}"><button>Learn More</button></a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

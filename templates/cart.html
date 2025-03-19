@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Cart</title>
+    <link rel="stylesheet" href="{% static 'css/addcart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+</head>
+<body>
+    <div class="container">
+        {% for item in data %}
+        <div class="product-card">
+            <div class="product-image">
+                <img src="media/{{item.image}}" >
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">{{item.product}}</h3>
+                <p class="product-price"><b>${{item.price}}</b></p>
+                <div class="product-quantity">
+                    <a href="/addcart?id={{item.id}}&type=decre" class="btn"><button>-</button></a></button>
+                    <span>{{item.quantity}}</span>
+                    <a href="/addcart?id={{item.id}}&type=incre" class="btn"><button>+</button></a>
+                </div>
+                <div class="button-group">
+                    <a href="/remove?id={{item.id}}"><button class="buy-now">Remove</button></a>
+                </div>
+            </div>
+        </div> 
+        {% endfor %}
+        <div class="price-details">
+            <h3>PRICE DETAILS</h3>
+            <div class="row"><span>Price ({{ data|length }} items)</span><span>$ {{ total_price|floatformat:2 }}</span></div>
+            <div class="row"><span>Delivery Charges</span><span>$ 10</span></div>
+            <div class="row total"><span>Total Amount</span><span>$ {{ total_price|floatformat:2 }}</span></div>
+        </div>
+        <div class="checkout-but">
+            <a href=""><button class="add-to-cart">Checkout</button></a>    
+        </div>
+    </div>
+        
+</body>
+</html>

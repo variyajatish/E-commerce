@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-Commerce Website</title>
+    <link rel="stylesheet" href="{% static 'css/c.css' %}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ecommerce Shop</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="">Products</a></li>
+                <li><a href="">Cart</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="/login">Profile </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Welcome to Ecommerce Shop!</h2>
+            <p>Your one-stop shop for all your needs.</p>
+            <a href="/login" class="btn">Shop Now</a>
+        </section>
+    </main>
+
+    <!-- <footer>
+        <p>&copy; 2025 ShopEasy. All rights reserved.</p>
+    </footer> -->
+</body>
+
+</html>
