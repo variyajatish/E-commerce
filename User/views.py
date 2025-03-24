@@ -121,12 +121,13 @@ def UserCart(request):
     cart_items = Cart.objects.filter(userId_id=userId)  
 
     cartData = []
-    total_price = 10
+    subtotal = 0
+    delivery_charge = 10  
 
     for item in cart_items:
         products = Products.objects.get(id=item.productId_id)
-        subtotal = item.quantity * products.price
-        total_price += subtotal
+        item_subtotal = item.quantity * products.price
+        subtotal += item_subtotal  
 
         cartData.append({
             "id": products.id,
@@ -134,10 +135,12 @@ def UserCart(request):
             "price": products.price,
             "image": products.image,
             "quantity": item.quantity,
-            "subtotal": subtotal
+            "subtotal": item_subtotal
         })
 
-    return render(request, "cart.html",{"data":cartData, "total_price": total_price})
+    total_price = subtotal + delivery_charge  
+    
+    return render(request, "cart.html", {"data": cartData, "subtotal": subtotal,"total_price": total_price})
 
 def RemoveId(request):
 
