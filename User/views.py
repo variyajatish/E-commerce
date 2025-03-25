@@ -149,3 +149,26 @@ def RemoveId(request):
     Cart.objects.filter(productId=removeId).delete()
     
     return redirect('/cart')
+
+def CheckOut(request):
+
+    userId = request.session.get('userId')  
+    cart_items = Cart.objects.filter(userId_id=userId)  
+
+    cartData = []
+    subtotal = 0
+    delivery_charge = 10  
+
+    for item in cart_items:
+        products = Products.objects.get(id=item.productId_id)
+        item_subtotal = item.quantity * products.price
+        subtotal += item_subtotal  
+
+        cartData.append({
+            "quantity": item.quantity,
+        })
+
+    total_price = subtotal + delivery_charge  
+    total_items = sum(item["quantity"] for item in cartData)  
+
+    return render(request, "checkout.html", {"data": cartData,"total_items": total_items,"total_price":total_price})

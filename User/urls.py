@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import HomePage, LoginPage, SignupPage, MainPage, ProductPage, Signupform, Loginform, Categories, AddCart, UserCart, RemoveId
+from .views import HomePage, LoginPage, SignupPage, MainPage, ProductPage, Signupform, Loginform, Categories, AddCart, UserCart, RemoveId, CheckOut
 from django.conf import settings  
 from django.conf.urls.static import static 
 
@@ -15,6 +15,7 @@ urlpatterns = [
     path('addcart', AddCart),
     path('cart', UserCart),
     path('remove', RemoveId),
+    path('checkout', CheckOut),
 ]
 
 if settings.DEBUG:  
