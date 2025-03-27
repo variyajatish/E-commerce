@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Products, Newlist, Featuredproducts, Category, Signup, Cart
+from .models import Products, Newlist, Featuredproducts, Category, Signup, Cart, Order
 
 
 def HomePage(request):
@@ -61,8 +61,7 @@ def Signupform(request):
     messages.success(request, "Signup successful! Please log in.")
     return redirect("/login",{"error":"Signup successful! Please log in."})
 
-    # return redirect('/signup')
-
+    # return redirect('/signup')///////////////////
 
 def Loginform(request):
 
@@ -172,3 +171,18 @@ def CheckOut(request):
     total_items = sum(item["quantity"] for item in cartData)  
 
     return render(request, "checkout.html", {"data": cartData,"total_items": total_items,"total_price":total_price})
+
+def OrderID(request):
+
+    fullname = request.POST.get('fullname')
+    email = request.POST.get('email')
+    phonenumber = request.POST.get('phonenumber')
+    address = request.POST.get('address')
+    city = request.POST.get('city')
+    state = request.POST.get('state')
+    pincode = request.POST.get('pincode')
+    paymentmethod = request.POST.get('paymentmethod')
+
+    Order.objects.create(fullname=fullname, email=email, phonenumber=phonenumber, address=address, city=city, state=state, pincode=pincode, paymentmethod=paymentmethod)
+
+    return redirect('/checkout')

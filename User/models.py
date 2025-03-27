@@ -35,6 +35,15 @@ class Cart(models.Model):
     userId = models.ForeignKey(Signup, on_delete=models.CASCADE)
     quantity = models.IntegerField()
 
+class Order(models.Model):
+    fullname = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    phonenumber = models.CharField(max_length=100)
+    address = models.CharField(max_length=1000)
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    pincode = models.CharField(max_length=100)
+    paymentmethod = models.CharField(max_length=100)
 
 
     
