@@ -54,6 +54,9 @@ select{
     display: block;
     text-align: center;
 }
+a{
+    text-decoration: none;
+}
 .checkout-btn:hover {
     background: #218838;
 }

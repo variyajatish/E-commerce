@@ -185,4 +185,8 @@ def OrderID(request):
 
     Order.objects.create(fullname=fullname, email=email, phonenumber=phonenumber, address=address, city=city, state=state, pincode=pincode, paymentmethod=paymentmethod)
 
-    return redirect('/checkout')
+    return redirect('/successful')
+
+def SuccessFul(request):
+
+    return render(request, "ordersuccess.html")
