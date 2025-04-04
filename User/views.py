@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Products, Newlist, Featuredproducts, Category, Signup, Cart, Order
+from .models import Products, Newlist, Featuredproducts, Category, Signup, Cart, Order, Contact
 
 
 def HomePage(request):
@@ -190,3 +190,19 @@ def OrderID(request):
 def SuccessFul(request):
 
     return render(request, "ordersuccess.html")
+
+def ConTact(request):
+
+    return render(request, "contact.html")
+
+def ContactFrom(request):
+
+    yourname = request.POST.get('yourname')
+    youremail = request.POST.get('youremail')
+    message = request.POST.get('message')
+
+    print(yourname)
+
+    Contact.objects.create(yourname=yourname, youremail=youremail, message=message)
+
+    return redirect('/contact')

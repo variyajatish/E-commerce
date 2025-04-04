@@ -45,5 +45,9 @@ class Order(models.Model):
     pincode = models.CharField(max_length=100)
     paymentmethod = models.CharField(max_length=100)
 
+class Contact(models.Model):
+    yourname = models.CharField(max_length=100)
+    youremail = models.EmailField(max_length=100)
+    message = models.TextField()
 
     

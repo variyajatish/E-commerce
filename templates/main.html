@@ -21,7 +21,8 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/main">Products</a></li>
                 <li><a href="/cart">Cart</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="">Orders</a></li>
+                <li><a href="/contact">Contact</a></li>
                 <li><a href="/login">Profile </a></li>
             </ul>
         </nav>
@@ -107,7 +108,7 @@
                     <div class="product-info">
                         <h3>{{i.nameproduct}}</h3>
                         <span class="sale-tag">Sale!</span>
-                        <p><a href="/product">Read more</a></p>
+                        <p><a href="/product?id={{i.id}}">Read more</a></p>
                     </div>
                     <img src="media/{{i.newimg}}"
                         alt="Product 1">
