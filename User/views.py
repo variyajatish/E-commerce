@@ -201,8 +201,6 @@ def ContactFrom(request):
     youremail = request.POST.get('youremail')
     message = request.POST.get('message')
 
-    print(yourname)
-
     Contact.objects.create(yourname=yourname, youremail=youremail, message=message)
 
     return redirect('/contact')
