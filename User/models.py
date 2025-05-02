@@ -8,15 +8,17 @@ class Products(models.Model):
     price = models.FloatField()
     desc = models.CharField(max_length=300)
     categori = models.CharField(max_length=100)
-    # using = models.CharField(max_length=100)
+    using = models.CharField(max_length=100)
 
 class Newlist(models.Model):
     newproduct = models.ImageField(upload_to='images/')
     productname = models.CharField(max_length=30)
+    categori = models.CharField(max_length=100)
 
 class Featuredproducts(models.Model):
     nameproduct = models.CharField(max_length=30)
     newimg = models.ImageField(upload_to='images/')
+    forusing = models.CharField(max_length=100)
 
 class Category(models.Model):
     productimg = models.ImageField(upload_to='images/')
