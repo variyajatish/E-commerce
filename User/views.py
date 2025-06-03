@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404
+# from .models import Products
 from django.contrib import messages
 from .models import Products, Newlist, Featuredproducts, Category, Signup, Cart, Order, Contact
 
@@ -27,13 +29,26 @@ def MainPage(request):
 
 
 def ProductPage(request):
+    viewId = request.GET.get('id')
 
-    viewId = request.GET.get('id')  
+    data = get_object_or_404(Products, id=viewId)
 
-    data = Products.objects.get(id=viewId)
-    print(data)
+    return render(request, 'product.html', {'data': data})
 
-    return render(request, 'product.html', {"data": data})
+def GendarItem(request):
+    # Get the value from query parameter 'forusing'
+    forusing = request.GET.get('forusing')
+
+    # If no filter provided, show all products or handle differently
+    if not forusing:
+        products = Products.objects.all()  # or .filter() with some default condition
+        return render(request, 'categories.html', {"items": products})
+
+    # Filter products based on 'using' field
+    products = Products.objects.filter(using=forusing)
+
+    # Pass filtered products to template as 'items'
+    return render(request, 'categories.html', {"items": products})
 
 
 def Signupform(request):

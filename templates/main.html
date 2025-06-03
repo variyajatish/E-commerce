@@ -108,10 +108,10 @@
                     <div class="product-info">
                         <h3>{{i.nameproduct}}</h3>
                         <span class="sale-tag">Sale!</span>
-                        <p><a href="/product?id={{i.id}}">Read more</a></p>
+                        <!-- Use the product's 'using' field to create the filter link -->
+                        <p><a href="/categories?forusing={{i.using}}">Read more</a></p>
                     </div>
-                    <img src="media/{{i.newimg}}"
-                        alt="Product 1">
+                    <img src="media/{{i.newimg}}" alt="{{i.nameproduct}}">
                 </div>
                 {% endfor %}
             </div>
