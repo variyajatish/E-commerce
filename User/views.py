@@ -9,7 +9,7 @@ from .models import Products, Newlist, Featuredproducts, Category, Signup, Cart,
 
 def HomePage(request):
     print(request.session)
-    return render(request,'Home.html')
+    return render(request,'home.html')
 
 
 def LoginPage(request):
