@@ -2,10 +2,13 @@ from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 # from .models import Products
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 from .models import Products, Newlist, Featuredproducts, Category, Signup, Cart, Order, Contact
 
 
 def HomePage(request):
+    print(request.session)
     return render(request,'Home.html')
 
 
@@ -19,7 +22,7 @@ def SignupPage(request):
 
 
 def MainPage(request):
-
+    print(request.session)
     data = Products.objects.all()[:8]
     user = Newlist.objects.all()
     items = Featuredproducts.objects.all()
@@ -71,28 +74,32 @@ def Signupform(request):
         messages.error(request, "Email already registered!")
         return render(request,"signup.html",{"error":"Email already registered!"})
 
-    Signup.objects.create(fullname=fullname, email=email, username=username, password=password, confirmpass=confirmpass)
+    # Signup.objects.create(fullname=fullname, email=email, username=username, password=password, confirmpass=confirmpass)
     
+    User.objects.create_user(email=email, username=username, password=password)
+
     messages.success(request, "Signup successful! Please log in.")
     return redirect("/login",{"error":"Signup successful! Please log in."})
 
     # return redirect('/signup')///////////////////
 
 def Loginform(request):
-
     username = request.POST.get('username')
     password = request.POST.get('password')
 
-    more = Signup.objects.get(username=username)
+    # more = Signup.objects.get(username=username)
     # print(more)
 
-    if(password == more.password) :
-        request.session['userId'] = more.id
+    # if(password == more.password) :
+    #     request.session['userId'] = more.id
+    #     return redirect("/main")
+    # else :
+    #     messages.error(request, "Invalid username or password")
+    #     return render(request,"login.html",{"error":"Invalid username or password"})
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
         return redirect("/main")
-    else :
-        messages.error(request, "Invalid username or password")
-        return render(request,"login.html",{"error":"Invalid username or password"})
-
     # return re(request,"login.html") 
 
 def Categories(request):
