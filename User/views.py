@@ -100,7 +100,8 @@ def Loginform(request):
     if user is not None:
         login(request, user)
         return redirect("/main")
-    # return re(request,"login.html") 
+    else:
+        return render(request,"login.html") 
 
 def Categories(request):
 
