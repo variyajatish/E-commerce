@@ -87,21 +87,21 @@ def Loginform(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
 
-    # more = Signup.objects.get(username=username)
-    # print(more)
+    more = Signup.objects.get(username=username)
+    print(more)
 
-    # if(password == more.password) :
-    #     request.session['userId'] = more.id
-    #     return redirect("/main")
-    # else :
-    #     messages.error(request, "Invalid username or password")
-    #     return render(request,"login.html",{"error":"Invalid username or password"})
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        login(request, user)
+    if(password == more.password) :
+        request.session['userId'] = more.id
         return redirect("/main")
-    else:
-        return render(request,"login.html") 
+    else :
+        messages.error(request, "Invalid username or password")
+        return render(request,"login.html",{"error":"Invalid username or password"})
+    # user = authenticate(username=username, password=password)
+    # if user is not None:
+    #     login(request, user)
+    #     return redirect("/main")
+    # else:
+    #     return render(request,"login.html") 
 
 def Categories(request):
 
